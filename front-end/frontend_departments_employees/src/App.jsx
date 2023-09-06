@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [ isToggled, setIsToggled ]= useState(false);
-
   const [ depData, setDepData ] = useState([]);
   const [ empData, setEmpData ] = useState([]);
+
+  const [ showDepartments, setShowDepartments ] = useState(false);
+  const [ showEmployees, setShowEmployees ] = useState(false);
 
   const fetchedDataDepartments = async () => {
     const data = await ((await fetch('http://localhost:4000/api/departments'))).json();
@@ -21,13 +22,18 @@ function App() {
   }
   
   const handleDepartments = () => {
-    fetchedDataDepartments();
-    //setIsToggled(!isToggled);
+    if(!showDepartments) {
+      fetchedDataDepartments();
+    }
+    setShowDepartments(!showDepartments);
   }
 
   const handleEmployees = () => {
-    fetchedDataEmployees();
-    // setIsToggled(!isToggled);
+    if(!showEmployees) {
+      fetchedDataEmployees();
+    }
+    setShowEmployees(!showEmployees);
+    
   }
   return (
     <div className='box'>
