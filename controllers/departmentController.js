@@ -37,7 +37,7 @@ export const getOneDepartment = async(req, res) => {
 
 export const deleteDepartments = async(req, res) => {
     try {
-        await Department.deleteMany();
+        await Departments.deleteMany();
         res.status(200).json({msg: "All departments removed"});
     } catch(error) {
         console.log({error});

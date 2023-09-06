@@ -6,8 +6,10 @@ const employeeRouter = Router();
 employeeRouter
     .post("/employee", employeeController.createEmployee)
     .get("/employees", employeeController.getAllEmployees)
+    .patch("/employee/:id", employeeController.updateOneEmployee)
     .get("/employee/:id", employeeController.getOneEmployee)
-    .delete("/employee", employeeController.deleteEmployees)
+    .delete("/employee/:id", employeeController.deleteEmployees)
+    .delete("/employee", employeeController.deleteOneEmployee)
 
 
 export default employeeRouter
